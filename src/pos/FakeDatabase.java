@@ -17,9 +17,9 @@ public class FakeDatabase implements DataAccessStrategy {
     };
     
     private Product[] products = {
-        new Product("115A", "Coffee Pot", "A fine quality Coffee Pot", 45, 19.99, new FlatDiscount(5)),
-        new Product("116A", "Coffee Mug", "A Coffee Mug", 135, 4.99, new NoDiscount()),
-        new Product("117A", "Coffee Filter", "Coffee Filters", 500, 0.00, new NoDiscount())
+        new Product("115A", "Coffee Pot", 45, 19.99, new FlatDiscount(5)),
+        new Product("116A", "Coffee Mug", 135, 4.99, new NoDiscount()),
+        new Product("117A", "Coffee Filter", 500, 0.00, new NoDiscount())
         
     };
 

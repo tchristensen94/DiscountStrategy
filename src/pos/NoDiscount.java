@@ -15,7 +15,7 @@ public class NoDiscount implements DiscountStrategy{
     /**
      * Gets the discounted price of product cost
      * @param cost the cost of the item
-     * @param qty
+     * @param qty quantity of the product purchased
      * @return the discounted price
      */
     @Override

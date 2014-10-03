@@ -51,6 +51,10 @@ public class LineItem {
         return product.getPrice() * quantity;
     }
 
+    /**
+     * Gets the discounted price of the product
+     * @return the discounted price
+     */
     public double getDiscountedPrice() {
         return product.getDiscountStrategy().getDiscountPrice(product.getPrice(), quantity);
     }

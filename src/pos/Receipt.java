@@ -16,10 +16,11 @@ public class Receipt {
     private static int receiptNumber = 0;
     private OutputStrategy output;
     
-    public Receipt(String id, DataAccessStrategy db) {
+    public Receipt(String id, DataAccessStrategy db, OutputStrategy os) {
         this.db = db;
         customer = loadCustomer(id);
         lineItems = new LineItem[0];
+        setOutput(os);
     }
     
     /**
@@ -120,23 +121,23 @@ public class Receipt {
         StringBuilder data = new StringBuilder("Thanks for shopping at Kohls!\n");
         data.append("Customer: ").append(customer.getCustomerName()).append("\n");
         data.append("Receipt Number: ").append(Receipt.receiptNumber).append("\n\n");
-        data.append("ID\tProduct\t\t\tPrice\tQty\tSubtotal\tDiscount").append("\n");
+        data.append("ID Product    Price Qty Subtotal Discount").append("\n");
         for(LineItem i: lineItems) {
-            data.append(i.getProduct().getProductID()).append("\t");
-            data.append(i.getProduct().getTitle()).append("\t");
-            data.append(nf.format(i.getProduct().getPrice())).append("\t");
-            data.append(i.getQty()).append("\t");
-            data.append(i.getTotalPrice()).append("\t");
-            data.append(nf.format(i.getDiscountedPrice())).append("\t");
+            data.append(i.getProduct().getProductID()).append(" ");
+            data.append(i.getProduct().getTitle()).append(" ");
+            data.append(nf.format(i.getProduct().getPrice())).append(" ");
+            data.append(i.getQty()).append(" ");
+            data.append(nf.format(i.getTotalPrice())).append(" ");
+            data.append(nf.format(i.getDiscountedPrice())).append(" \n");
         }
 
         data.append("\n");
-        data.append("\t\t\t\t\t\t\t\t--------\n");
+        data.append("--------\n");
         double net = getPreDiscountTotal();
-        data.append("\t\t\t\t\t\tNet Total: ").append(nf.format(net)).append("\n");
+        data.append("Net Total: ").append(nf.format(net)).append("\n");
         double discount = getDiscount();
-        data.append("\t\t\t\t\t\tTotal Saved: ").append(nf.format(discount)).append("\n");
-        data.append("\t\t\t\t\t\tTotal Due: ").append(nf.format(net -discount)).append("\n");
+        data.append("Total Saved: ").append(nf.format(discount)).append("\n");
+        data.append("Total Due: ").append(nf.format(net -discount)).append("\n");
 
         output.outputReceipt(data.toString());
 

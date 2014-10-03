@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
         Register r = new Register();
-        r.startTransaction("001C", new FakeDatabase());
-        r.addItem("115A", 15);
+        r.startTransaction("001C", new FakeDatabase(), new OutputJPane());
+        r.addItem("115A", 10);
         r.addItem("116A", 1);
         r.endTransaction();
     }

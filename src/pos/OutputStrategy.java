@@ -1,7 +1,9 @@
 package pos;
 
 /**
- * Created by Timothy on 10/3/2014.
+ * An interface for creating outputs to be used with the receipt class
+ * @author Tim
+ * @version 0.1
  */
 public interface OutputStrategy {
 
