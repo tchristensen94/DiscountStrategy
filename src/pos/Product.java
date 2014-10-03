@@ -9,8 +9,15 @@ public class Product {
     private String title;
     private String description;
     private double price;
-    private int quantity;
     private DiscountStrategy discountStrategy;
+
+    public Product(String id, String title, String description, int quantity, double price, DiscountStrategy ds) {
+        setProductID(id);
+        setTitle(title);
+        setDescription(description);
+        setPrice(price);
+        setDiscountStrategy(ds);
+    }
 
     public final String getTitle() {
         return title;
@@ -37,14 +44,6 @@ public class Product {
         this.description = description;
     }
 
-    public final int getQuantity() {
-        return quantity;
-    }
-
-    public final void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public final double getPrice() {
         return price;
     }
@@ -61,12 +60,5 @@ public class Product {
         this.discountStrategy = discountStrategy;
     }
 
-    public Product(String id, String title, String description, int quantity, double price, DiscountStrategy ds) {
-        setProductID(id);
-        setTitle(title);
-        setDescription(description);
-        setQuantity(quantity);
-        setPrice(price);
-        setDiscountStrategy(ds);
-    }
+
 }

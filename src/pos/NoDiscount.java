@@ -6,15 +6,21 @@
 package pos;
 
 /**
- *
+ *A discount strategy that offers no discount
  * @author Timothy
  * @version 0.01
  */
 public class NoDiscount implements DiscountStrategy{
-
+    
+    /**
+     * Gets the discounted price of product cost
+     * @param cost the cost of the item
+     * @param qty
+     * @return the discounted price
+     */
     @Override
-    public double getDiscountPrice(double cost) {
-        return cost;
+    public double getDiscountPrice(double cost, int qty) {
+        return 0;
     }
     
 }

@@ -19,4 +19,8 @@ public class Register {
         receipt.addLineItem(productID, quantity);
     }
 
+    public void endTransaction() {
+        receipt.printReceipt();
+    }
+
 }

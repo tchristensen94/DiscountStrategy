@@ -8,6 +8,11 @@ public class Customer {
     private String customerName;
     private String customerID;
 
+    public Customer(String customerName, String customerID) {
+        setCustomerName(customerName);
+        setCustomerID(customerID);
+    }
+
     public final String getCustomerName() {
         return customerName;
     }
@@ -24,8 +29,5 @@ public class Customer {
         this.customerID = customerID;
     }
 
-    public Customer(String customerName, String customerID) {
-        setCustomerName(customerName);
-        setCustomerID(customerID);
-    }
+
 }
